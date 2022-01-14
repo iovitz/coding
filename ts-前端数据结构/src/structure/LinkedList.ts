@@ -1,10 +1,9 @@
 // 链表数据结构
 export default class LinkedList<T = any> {
-
-  public next: LinkedList<T> | null
-
-  constructor(public value: T, next?: LinkedList<T>) {
-    this.next = next || null
+  constructor (
+    public value?: T,
+    public next?: LinkedList<T>
+  ) {
+    console.log('22')
   }
-
 }
