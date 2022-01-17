@@ -26,12 +26,17 @@ export function install (Vue) {
   Vue.mixin({
     // 在beforeCreate生命周期中在 Vue 组件上挂载 router 和 route 对象
     beforeCreate () {
+      // 拿到vue初始化时的router选项
       if (isDef(this.$options.router)) {
+        // 如果是根节点
+        // 把当前实例挂载到 _routerRoot 上
         this._routerRoot = this
         this._router = this.$options.router
         this._router.init(this)
         Vue.util.defineReactive(this, '_route', this._router.history.current)
       } else {
+        // 不是根节点
+        // 从父节点拿到 router 对象
         this._routerRoot = (this.$parent && this.$parent._routerRoot) || this
       }
       registerInstance(this, this)
@@ -41,14 +46,18 @@ export function install (Vue) {
     }
   })
 
+  // 给组件添加$router
   Object.defineProperty(Vue.prototype, '$router', {
+    // 使用get，避免被修改
     get () { return this._routerRoot._router }
   })
 
+  // 给组件添加$route
   Object.defineProperty(Vue.prototype, '$route', {
     get () { return this._routerRoot._route }
   })
 
+  // 注册路由组件
   Vue.component('RouterView', View)
   Vue.component('RouterLink', Link)
 

@@ -42,6 +42,7 @@ export default {
       default: 'click'
     }
   },
+  // 渲染方法
   render (h: Function) {
     const router = this.$router
     const current = this.$route

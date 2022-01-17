@@ -4,6 +4,7 @@ import Regexp from 'path-to-regexp'
 import { cleanPath } from './util/path'
 import { assert, warn } from './util/warn'
 
+// 创建路由表，作为路由和组件的映射
 export function createRouteMap (
   routes: Array<RouteConfig>,
   oldPathList?: Array<string>,
