@@ -13,6 +13,7 @@ export function install (Vue) {
   // 拿到vue实例对象
   _Vue = Vue
 
+  // 工具方法
   const isDef = v => v !== undefined
 
   const registerInstance = (vm, callVal) => {
@@ -23,7 +24,7 @@ export function install (Vue) {
   }
 
   Vue.mixin({
-    // 在beforeCreate生命周期中挂在Vue的router对象
+    // 在beforeCreate生命周期中在 Vue 组件上挂载 router 和 route 对象
     beforeCreate () {
       if (isDef(this.$options.router)) {
         this._routerRoot = this

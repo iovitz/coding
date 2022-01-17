@@ -50,6 +50,7 @@ export default class VueRouter {
     this.afterHooks = []
     this.matcher = createMatcher(options.routes || [], this)
 
+    // 默认 hash 模式
     let mode = options.mode || 'hash'
     this.fallback =
       mode === 'history' && !supportsPushState && options.fallback !== false
