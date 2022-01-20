@@ -8,8 +8,8 @@ mongoose.connect(mongoDBUrl)
   .then(() => {
     console.log('mongoDB connected');
   })
-  .catch(err => {
-    console.log('---', err);
+  .catch(() => {
+    console.log('mongoDB connect faild.');
   });
 
 module.exports = app => {
