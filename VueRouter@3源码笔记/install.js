@@ -13,9 +13,10 @@ export function install (Vue) {
   // 拿到vue实例对象
   _Vue = Vue
 
-  // 工具方法
+  // 变量是否定义
   const isDef = v => v !== undefined
 
+  // 注册
   const registerInstance = (vm, callVal) => {
     let i = vm.$options._parentVnode
     if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
@@ -23,12 +24,12 @@ export function install (Vue) {
     }
   }
 
+  // 在beforeCreate生命周期中在 Vue 组件上挂载 router 和 route 对象
   Vue.mixin({
-    // 在beforeCreate生命周期中在 Vue 组件上挂载 router 和 route 对象
     beforeCreate () {
-      // 拿到vue初始化时的router选项
+
+      // 如果是根节点
       if (isDef(this.$options.router)) {
-        // 如果是根节点
         // 把当前实例挂载到 _routerRoot 上
         this._routerRoot = this
         this._router = this.$options.router

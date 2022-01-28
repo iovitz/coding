@@ -16,6 +16,7 @@ export type Matcher = {
   getRoutes: () => Array<RouteRecord>;
 };
 
+// 创建路由表映射
 export function createMatcher (
   routes: Array<RouteConfig>,
   router: VueRouter

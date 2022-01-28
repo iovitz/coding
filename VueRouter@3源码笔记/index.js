@@ -48,18 +48,24 @@ export default class VueRouter {
     this.beforeHooks = []
     this.resolveHooks = []
     this.afterHooks = []
+
+    // 创建路由和组件的映射
     this.matcher = createMatcher(options.routes || [], this)
 
     // 默认 hash 模式
     let mode = options.mode || 'hash'
+
     this.fallback =
       mode === 'history' && !supportsPushState && options.fallback !== false
+
     if (this.fallback) {
       mode = 'hash'
     }
+
     if (!inBrowser) {
       mode = 'abstract'
     }
+
     this.mode = mode
 
     switch (mode) {
@@ -285,6 +291,7 @@ function createHref (base: string, fullPath: string, mode) {
   return base ? cleanPath(base + '/' + path) : path
 }
 
+// 把 install 方法挂上去
 VueRouter.install = install
 VueRouter.version = '__VERSION__'
 VueRouter.isNavigationFailure = isNavigationFailure
