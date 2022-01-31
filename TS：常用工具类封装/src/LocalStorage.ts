@@ -1,6 +1,6 @@
 class LocalStorage {
   // LocalStorage实例
-  static instance = new this()
+  private static instance = new this()
 
   /**
    * 获取LocalStorage类实例
