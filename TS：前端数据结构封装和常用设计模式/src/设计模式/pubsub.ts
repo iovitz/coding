@@ -13,7 +13,7 @@ class Eventer {
   }
 
   /**
-   * 存储事件
+   * 存储事件的对象
    */
   protected events: {
     [key: string]: Array<(...args: any[]) => void>
