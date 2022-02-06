@@ -17,7 +17,6 @@ class LocalStorage {
    */
   public set(key: string, val: any) {
     val = typeof val === 'string' ? val : JSON.stringify(val)
-    console.log('@', key, val)
     localStorage.setItem(key, val)
   }
 
