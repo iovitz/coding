@@ -5,6 +5,7 @@ type TFunction = (...args: any) => any
  * @param timeout 防抖时间
  * @returns 防抖包装之后的函数
  */
+
 function debounce (fn: TFunction, timeout: number = 300) {
   let timer: number
   return function (...args: any) {
