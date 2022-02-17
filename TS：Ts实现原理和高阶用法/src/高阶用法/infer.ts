@@ -16,6 +16,7 @@ class Computer {
   // eslint-disable-next-line no-useless-constructor
   constructor (public brand: string, public age: number) {}
 }
+
 const thinkpad = new Computer('thinkpad', 3)
 const set = new Set<Computer>()
 set.add(thinkpad)
