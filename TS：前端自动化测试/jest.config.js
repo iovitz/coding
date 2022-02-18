@@ -69,6 +69,7 @@ module.exports = {
   // moduleDirectories: [
   //   "node_modules"
   // ],
+  // 文件中可能应用的模块后缀
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -117,7 +118,7 @@ module.exports = {
   // A list of paths to directories that Jest should use to search for files in
   roots: [
     './src'
-  ]
+  ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -143,16 +144,16 @@ module.exports = {
   // Adds a location field to test results
   // testLocationInResults: false,
 
-  // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
-  // ],
+  // 测试文件夹
+  testMatch: [
+    '**/__tests__/**/*.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[tj]s?(x)'
+  ],
 
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
-  // ],
+  // 忽略路径
+  testPathIgnorePatterns: [
+    '\\\\node_modules\\\\'
+  ]
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
