@@ -1,4 +1,4 @@
-# flutter_learn
+# flutter_template
 
 A new Flutter project.
 
