@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container" style="width: 500px; height: 500px"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zrender/5.3.0/zrender.min.js"></script>
+
+  <script>
+    const zr = zrender.init(document.getElementById('container'))
+    const rect = new zrender.Rect({
+      shape: {
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 100,
+      },
+      style: {
+        fill: 'red',
+        lineWidth: 0
+      }
+    })
+    const line = new zrender.Polyline({
+      shape: {
+        points: [
+          [100, 100],
+          [200, 200],
+        ]
+      },
+      style: {
+        stroke: 'red',
+        lineWidth: 1
+      }
+    })
+
+    zr.add(rect)
+    zr.add(line)
+  </script>
+</body>
+</html>

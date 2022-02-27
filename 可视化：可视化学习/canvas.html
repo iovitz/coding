@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+
+  <script> 
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+    ctx.fillStyle = 'red'
+    ctx.fillRect(0, 0, 100, 100)
+
+    ctx.beginPath()
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'red'
+    ctx.moveTo(200, 200)
+    ctx.lineTo(300, 300)
+    ctx.lineTo(300, 200)
+    ctx.stroke()
+  </script>
+</body>
+</html>
