@@ -1,7 +1,9 @@
 const reg = /l/g
 
-let str = 'hello, world'
+const str = 'hello, world'
 
 console.log(str.replace(reg, char => {
   return `<span style="color: red">${char}</span>`
 }))
+
+export default {}
