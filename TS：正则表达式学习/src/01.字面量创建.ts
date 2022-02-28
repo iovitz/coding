@@ -6,3 +6,4 @@ console.log(reg.test(str))
 const char = 'i'
 console.log(eval(`/${char}/`).test(str))
 
+export default {}

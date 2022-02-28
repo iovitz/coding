@@ -6,3 +6,4 @@ const str = 'iovitz'
 
 console.log(reg.test(str))
 
+export default {}
