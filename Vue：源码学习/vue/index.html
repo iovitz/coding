@@ -18,7 +18,7 @@
         el: '#app',
         // 4.告诉Vue的实例对象, 被控制区域的数据是什么
         data: {
-            name: "李南江"
+            name: "iovitz"
         }
     });
     /*
@@ -34,11 +34,11 @@
     descriptor: 属性描述符
     Object.defineProperty(obj, prop, descriptor)
     * */
-    let obj = {name: '李南江'};
+    let obj = {name: 'iovitz'};
     // 需求: 给obj对象动态新增一个name属性, 并且name属性的取值必须是lnj
     Object.defineProperty(obj, 'name', {
         // 可以通过value来告诉defineProperty方法新增的属性的取值是什么
-        value: 'lnj',
+        value: 'iovitz',
         // 默认情况下通过defineProperty新增的属性的取值是不能修改的
         // 如果想修改, 那么就必须显示的告诉defineProperty方法
         // writable: true

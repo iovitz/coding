@@ -5,13 +5,13 @@ let CompilerUtil = {
     }, vm.$data)
   },
   getContent(vm, value) {
-    // console.log(value); //  {{name}}-{{age}} -> 李南江-{{age}}  -> 李南江-33
+    // console.log(value); //  {{name}}-{{age}} -> iovitz-{{age}}  -> iovitz-33
     let reg = /\{\{(.+?)\}\}/gi
     let val = value.replace(reg, (...args) => {
       // 第一次执行 args[1] = name
       // 第二次执行 args[1] = age
       // console.log(args);
-      return this.getValue(vm, args[1]) // 李南江, 33
+      return this.getValue(vm, args[1]) // iovitz, 33
     })
     // console.log(val);
     return val
