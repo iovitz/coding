@@ -1,9 +1,22 @@
 // 链表数据结构
-export default class LinkedList<T = any> {
+class LinkedListNode<T> {
   constructor (
-    public value?: T,
-    public next: LinkedList<T> = null
-  ) {
-    console.log('22')
-  }
+    public value: T,
+    public next: LinkedListNode<T> | null = null
+  ) {}
 }
+
+export class LinkedList<T> {
+  public size = 0
+
+  constructor(
+    private head: LinkedListNode<T> | null = null
+  ) {}
+
+  clear() {
+
+  }
+
+  indexOf() {}
+}
+  
