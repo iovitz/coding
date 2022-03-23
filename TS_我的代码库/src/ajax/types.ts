@@ -19,6 +19,6 @@ export interface Data<T = any> {
   msg: string
 }
 
-export interface HttpRequest {
+export interface AjaxRequest {
   <T = any>(options: Options): Promise<Data<T>>
 }

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import type { ApiItem, Data, HttpRequest, RequestMethod } from './types'
+import type { ApiItem, Data, AjaxRequest, RequestMethod } from './types'
 import { showMessage } from '../message'
 import { requestErrors } from './error-tips'
 import envConfig from '../config'
@@ -42,7 +42,12 @@ service.interceptors.response.use((res: AxiosResponse<Data<any>>) => {
   }
 })
 
-const http: HttpRequest = (options) => {
+/**
+ * 主要的请求函数
+ * @param options Options
+ * @returns Promise
+ */
+const ajax: AjaxRequest = (options) => {
   if (!options.method) {
     options.method = 'get'
   }
@@ -53,6 +58,11 @@ const http: HttpRequest = (options) => {
   return promise
 }
 
+/**
+ * 创建请求函数
+ * @param options { url: String, reqType: typeof Request, resType: typeof Response }
+ * @returns
+ */
 const apiFunctionFactory = <T extends ApiItem>(options: T) => {
   type Req = T extends ApiItem<infer P, any> ? P : any
   type Res = T extends ApiItem<any, infer P> ? P : any
