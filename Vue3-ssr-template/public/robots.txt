@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /webapi/*
+Disallow: /auth/*
+Disallow: /algapi/*
+Disallow: /api/*
+Disallow: /*.jpg$
+Disallow: /*.png$
+
+Sitemap: https://www.dalezhuang.com
