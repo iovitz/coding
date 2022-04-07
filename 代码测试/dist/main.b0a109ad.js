@@ -117,14 +117,22 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/Emitor.ts":[function(require,module,exports) {
+})({"src/monitor/monitor.ts":[function(require,module,exports) {
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -136,167 +144,166 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var EmitorEvent = /*#__PURE__*/function () {
-  function EmitorEvent(name, handler, context) {
-    _classCallCheck(this, EmitorEvent);
+var Monitor = /*#__PURE__*/function () {
+  function Monitor() {
+    _classCallCheck(this, Monitor);
 
-    this.name = name;
-    this.handler = handler;
-    this.context = context;
+    // 最后一个交互事件
+    // 设置为 MouseEvent 瞒过 Typescript 的语法检查
+    this.lastEvent = null;
   }
 
-  _createClass(EmitorEvent, [{
-    key: "execute",
-    value: function execute() {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      if (typeof this.context !== 'undefined') {
-        this.handler.apply(this.context, args);
-      } else {
-        this.handler.apply(this, args);
-      }
-    }
-  }]);
-
-  return EmitorEvent;
-}();
-
-var Emitor = /*#__PURE__*/function () {
-  function Emitor() {
-    _classCallCheck(this, Emitor);
-
-    this.eventMap = new Map();
-    this.sceneMap = new Map();
-  }
-
-  _createClass(Emitor, [{
-    key: "createScene",
-    value: function createScene() {
-      var that = this;
-      var sceneMap = this.sceneMap;
-      var eventSet = new Set();
-      var sceneId = Symbol('scene');
-      sceneMap.set(sceneId, eventSet);
-      return {
-        on: function on(name, handler, context) {
-          eventSet.add(new EmitorEvent(name, handler, context));
-          that.on(name, handler, context);
-          return true;
-        },
-        off: function off(name, handler) {
-          var _iterator = _createForOfIteratorHelper(eventSet),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var event = _step.value;
-
-              if (event.name === name && event.handler === handler) {
-                eventSet.delete(event);
-                return true;
-              }
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-
-          return false;
-        },
-        destroy: function destroy() {
-          var _iterator2 = _createForOfIteratorHelper(eventSet),
-              _step2;
-
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var eventEmitor = _step2.value;
-              var name = eventEmitor.name,
-                  handler = eventEmitor.handler;
-              that.off(name, handler);
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-
-          return that.sceneMap.delete(sceneId);
-        }
-      };
+  _createClass(Monitor, [{
+    key: "init",
+    value: function init() {
+      this.getLastSelector();
+      this.injectError();
     }
   }, {
-    key: "on",
-    value: function on(name, handler, context) {
-      var eventMap = this.eventMap,
-          sceneMap = this.sceneMap;
-
-      if (!eventMap.has(name)) {
-        eventMap.set(name, new Set());
-      }
-
-      var eventSet = eventMap.get(name);
-      eventSet && eventSet.add(new EmitorEvent(name, handler, context));
-    }
-  }, {
-    key: "off",
-    value: function off(name, handler) {
-      var eventMap = this.eventMap;
-
-      if (eventMap.has(name)) {
-        var eventSet = eventMap.get(name);
-        eventSet && eventSet.forEach(function (emitorEvent) {
-          if (emitorEvent.handler === handler) {
-            eventSet.delete(emitorEvent);
-          }
-        });
-      }
-    }
-  }, {
-    key: "emit",
-    value: function emit(name) {
-      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-        args[_key2 - 1] = arguments[_key2];
-      }
-
-      var eventMap = this.eventMap;
-
-      if (eventMap.has(name)) {
-        var eventSet = eventMap.get(name);
-        eventSet && eventSet.forEach(function (emitorEvent) {
-          emitorEvent.execute.apply(emitorEvent, args);
-        });
-      }
-    }
-  }, {
-    key: "once",
-    value: function once(name, handler, context) {
+    key: "getLastSelector",
+    value: function getLastSelector() {
       var _this = this;
 
-      var fn = function fn() {
-        for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-          args[_key3] = arguments[_key3];
-        }
+      ['click', 'touchstart', 'mousedown', 'keydown', 'mouseover'].forEach(function (eventType) {
+        document.addEventListener(eventType, function (event) {
+          _this.lastEvent = event;
+        }, {
+          capture: true,
+          passive: true // 不阻止默认事件
 
-        if (typeof context !== 'undefined') {
-          handler.apply(context, args);
+        });
+      });
+    }
+  }, {
+    key: "injectError",
+    value: function injectError() {
+      this.injectJsError();
+      this.injectPromiseError();
+      this.injectResourceError();
+    }
+  }, {
+    key: "injectJsError",
+    value: function injectJsError() {
+      var _this2 = this;
+
+      console.log('eee');
+      window.addEventListener('error', function (event) {
+        var target = event.target;
+        console.log(target);
+        var jsErrorLog = {
+          kind: 'stability',
+          type: 'error',
+          errorType: 'jsError',
+          url: location.href,
+          message: event.message,
+          fileName: event.filename,
+          position: "".concat(event.lineno, ":").concat(event.colno),
+          stack: _this2.formatJsErrorStack(event.error.stack),
+          element: _this2.getLastElement()
+        };
+        console.log(jsErrorLog);
+      });
+    }
+  }, {
+    key: "injectPromiseError",
+    value: function injectPromiseError() {
+      var _this3 = this;
+
+      window.addEventListener('unhandledrejection', function (event) {
+        var _a;
+
+        var reason = event.reason;
+        reason = reason || '';
+        var message = '';
+        var stack = '';
+        var fileName = '';
+        var lineno = '';
+        var colno = '';
+
+        if (_typeof(event.reason) === 'object') {
+          if (reason instanceof Error) {
+            message = reason.message || '';
+            stack = reason.stack ? _this3.formatJsErrorStack(reason.stack) : '';
+            var errorStackMatchResult = (_a = reason.stack) === null || _a === void 0 ? void 0 : _a.match(/\s+at\s+(.+):(\d+):(\d+)\s+/);
+
+            if (errorStackMatchResult) {
+              fileName = errorStackMatchResult[1];
+              lineno = errorStackMatchResult[2];
+              colno = errorStackMatchResult[3];
+            }
+          } else {
+            message = JSON.stringify(reason);
+          }
         } else {
-          handler.apply(void 0, args);
+          message = "".concat(reason);
         }
 
-        _this.off(name, fn);
-      };
+        var promiseErrorLog = {
+          kind: 'stability',
+          type: 'error',
+          errorType: 'promiseError',
+          url: location.href,
+          message: message,
+          fileName: fileName,
+          position: "".concat(lineno, ":").concat(colno),
+          stack: stack,
+          element: _this3.getLastElement()
+        };
+        console.log(promiseErrorLog);
+      });
+    }
+  }, {
+    key: "injectResourceError",
+    value: function injectResourceError() {}
+    /**
+     * 获得最后一个交互元素
+     */
 
-      this.on(name, fn, context);
+  }, {
+    key: "getLastElement",
+    value: function getLastElement() {
+      var lastEvent = this.lastEvent;
+
+      if (lastEvent) {
+        var path = lastEvent.path;
+        return path.reverse().slice(2).reduce(function (prev, curr) {
+          var id = curr.id,
+              classList = curr.classList;
+          var selectorStr = curr.nodeName.toLocaleLowerCase();
+
+          if (id) {
+            selectorStr += "#".concat(id);
+          }
+
+          if (classList && classList.length > 0) {
+            selectorStr += ".".concat(_toConsumableArray(classList).join('.'));
+          }
+
+          return prev ? "".concat(prev, ">").concat(selectorStr) : selectorStr;
+        }, '');
+      } else {
+        return '';
+      }
+    }
+    /**
+     * 格式化 Js error 中的堆栈inxi
+     * @param stack Js error 中的堆栈信息
+     * @returns 格式化之后的堆栈信息
+     */
+
+  }, {
+    key: "formatJsErrorStack",
+    value: function formatJsErrorStack(stack) {
+      return stack.split('\n').slice(1).reverse().map(function (stackItem) {
+        return stackItem.replace(/\s+at\s+/g, '');
+      }).join('^');
     }
   }]);
 
-  return Emitor;
+  return Monitor;
 }();
 
-exports.default = new Emitor();
+exports.default = new Monitor();
 },{}],"src/main.ts":[function(require,module,exports) {
 "use strict";
 
@@ -310,18 +317,32 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var Emitor_1 = __importDefault(require("./Emitor"));
+var monitor_1 = __importDefault(require("./monitor/monitor"));
 
-var scene = Emitor_1.default.createScene();
-scene.on('awef', function () {
-  console.log(this);
-}, {
-  name: 'zhagnsan'
+monitor_1.default.init();
+var jsErrorBtn = document.querySelector('#js-error');
+var promiseErrorBtn = document.querySelector('#promise-error');
+jsErrorBtn === null || jsErrorBtn === void 0 ? void 0 : jsErrorBtn.addEventListener('click', function () {
+  a();
 });
-Emitor_1.default.emit('awef');
-scene.destroy();
-Emitor_1.default.emit('awef');
-},{"./Emitor":"src/Emitor.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function a() {
+  b();
+}
+
+function b() {
+  throw new Error('Haha, js error!!!');
+}
+
+promiseErrorBtn === null || promiseErrorBtn === void 0 ? void 0 : promiseErrorBtn.addEventListener('click', function () {
+  new Promise(function (resolve, reject) {
+    // undefined.name = '123'
+    reject();
+  }).then(function (res) {
+    console.log(res);
+  });
+});
+},{"./monitor/monitor":"src/monitor/monitor.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -349,7 +370,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63425" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61184" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
