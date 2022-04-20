@@ -1,12 +1,12 @@
-import React from 'react';
-import TestState from './test-state/TestState';
+import React from 'react'
+import PageHeader from '../cpns/page-header'
 
 function App() {
   return (
-    <div className="App">
-      <TestState></TestState>
+    <div className='App'>
+      <PageHeader></PageHeader>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
