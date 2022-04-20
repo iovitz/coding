@@ -1,0 +1,214 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * 1 解决 WP 与 iPhone 手机屏幕方向改变时字体大小自动调整问题
+ * 2 基于 border-box 盒模型书写样式
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  color: #312735;
+  font-family: 'sans-serif';
+  -moz-tab-size: 4;
+  tab-size: 4;
+  line-height: 2;
+  font-size: 14px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * 1 禁用图片拖拽
+ * 2 ie 8/9/10 下 a 中的 img 会有 边框
+ */
+img {
+  -webkit-user-drag: none;
+  /* 1 */
+  border-style: none;
+  /* 2 */
+}
+
+/*
+ * 1 不使用浏览器默认的链接颜色
+ * 2 取消 ie10 下链接点击的灰色背景
+ * 3 取消所有浏览器中链接的 虚线边框
+ */
+a {
+  color: inherit;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+}
+a:active,
+a:hover {
+  outline-width: 0;
+  /* 3 */
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 等宽字体标签样式 */
+code,
+kbd,
+pre,
+samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin-block-start: 0;
+}
+
+small {
+  font-size: 80%;
+}
+
+hr {
+  overflow: visible;
+  /* Show the overflow in Edge and IE */
+  height: 0;
+  /* Add the correct box sizing in Firefox */
+  color: inherit;
+  /* Correct border color in Firefox. */
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 统一表单域边距 */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1 指定表单元素进行样式继承
+ * 2 取消表单huver时候的outline
+ * 3 部分表单元素高度不能被行高撑开
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  /* 1 */
+  outline: none;
+  /* 2 */
+  line-height: 1;
+  /* 3 */
+  border: 1px solid currentColor;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline-width: 0;
+}
+
+/*
+ * 给按钮元素添加光标指针样式
+ */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'],
+[role='button'] {
+  cursor: pointer;
+  color: inherit;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+#app {
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.fn-no_scroll::-webkit-scrollbar { display: none; }
+.fn-no_scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: scroll;
+}
+
