@@ -4,7 +4,8 @@
   "description": "前端学习的一些代码",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install",
+    "lint": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,14 @@
     "url": "https://github.com/iovitz/fe-learning/issues"
   },
   "homepage": "https://github.com/iovitz/fe-learning#readme",
-  "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "concurrently": "^7.1.0",
-    "lerna": "^4.0.0"
-  }
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "lint-staged": "^12.3.8"
+  },
+  "lint-staged": {}
 }
