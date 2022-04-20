@@ -1,0 +1,58 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\WORKER\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add ts-node typescript parcel-bundler nodemon eslint eslint-plugin-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise @typescript-esling/parser @typescript-eslint/eslint-plugin -D -W
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;D:\APP\Bandizip;C:\Program Files\TortoiseGit\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Users\WORKER\AppData\Local\Yarn\bin;C:\Program Files\Go\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\flutter\bin;;C:\Program Files (x86)\Tencent\微信web开发者工具\dll;C:\Program Files\dotnet\;C:\Users\WORKER\AppData\Local\Microsoft\WindowsApps;C:\Users\WORKER\AppData\Roaming\npm;C:\Program Files\JetBrains\WebStorm 2021.1.1\bin;C:\Users\WORKER\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\WORKER\go\bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: http://175.178.3.38:14873/@typescript-esling%2fparser: no such package available
+      at Request.params.callback [as _callback] (C:\Users\WORKER\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
+      at Request.self.callback (C:\Users\WORKER\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (C:\Users\WORKER\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (C:\Users\WORKER\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "fe-learning",
+    "version": "1.0.0",
+    "description": "前端学习的一些代码",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/iovitz/fe-learning.git"
+    },
+    "private": true,
+    "author": "iovitz",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/iovitz/fe-learning/issues"
+    },
+    "homepage": "https://github.com/iovitz/fe-learning#readme",
+    "workspaces": [
+      "codes\\regular-expression"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

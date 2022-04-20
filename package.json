@@ -1,0 +1,36 @@
+{
+  "name": "fe-learning",
+  "version": "1.0.0",
+  "description": "前端学习的一些代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iovitz/fe-learning.git"
+  },
+  "private": true,
+  "author": "iovitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iovitz/fe-learning/issues"
+  },
+  "homepage": "https://github.com/iovitz/fe-learning#readme",
+  "workspaces": [
+    "codes\\regular-expression"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^2.0.15",
+    "parcel-bundler": "^1.12.5",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}

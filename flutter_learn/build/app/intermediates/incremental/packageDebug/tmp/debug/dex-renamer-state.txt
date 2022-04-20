@@ -1,4 +1,0 @@
-#Mon Feb 21 23:55:07 CST 2022
-base.0=C\:\\Users\\Administrator\\Documents\\GitHub\\fe-learning\\flutter_learn\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
