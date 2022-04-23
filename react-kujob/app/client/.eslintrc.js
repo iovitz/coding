@@ -30,8 +30,8 @@ module.exports = {
       },
     ],
     'import/extensions': 'off',
-    semi: 0,
     'semi-spacing': [0, { before: false, after: true }],
     'import/no-unresolved': 0,
+    semi: ['error', 'never'],
   },
-};
+}
