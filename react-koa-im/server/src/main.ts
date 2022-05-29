@@ -1,8 +1,4 @@
-let a = 111
+import './config'
+import WebServer from './server'
 
-
-const b = 1
-
-
-
-
+const webServer = new WebServer(process.env.port)
