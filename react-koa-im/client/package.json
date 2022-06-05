@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+    "@reduxjs/toolkit": "^1.8.2",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -33,6 +34,7 @@
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "i18next": "^21.8.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
@@ -49,9 +51,11 @@
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.1",
     "react-dom": "^18.1.0",
+    "react-i18next": "^11.16.9",
     "react-redux": "^8.0.2",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^13.0.0",
@@ -153,7 +157,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
-    "node-sass": "^7.0.1",
     "prettier": "^2.6.2",
     "typescript-plugin-css-modules": "^3.4.0"
   }

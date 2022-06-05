@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Messages from './messages'
 import Friends from './friends'

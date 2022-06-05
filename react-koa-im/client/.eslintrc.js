@@ -16,6 +16,7 @@ module.exports = {
     // 允许在开发环境添加debugger
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     indent: ['error', 2, { SwitchCase: 1 }],
+    '': 'off',
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
@@ -28,6 +29,7 @@ module.exports = {
     'no-multiple-empty-lines': 0,
     'react/self-closing-comp': ['error'],
     'arrow-parens': ['error', 'always'],
+    ' @typescript-eslint/no-unused-vars': 'off',
   },
   settings: {
     react: {
