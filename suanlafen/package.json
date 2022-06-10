@@ -1,0 +1,23 @@
+{
+  "name": "suanlafen",
+  "version": "1.0.0",
+  "description": "wanyier",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "publish": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/iovitz/suanlafen.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "lerna": "^4.0.0"
+  }
+}
