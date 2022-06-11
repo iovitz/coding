@@ -4,7 +4,6 @@ import Chat from './views/chat'
 import Friends from './views/friends'
 import Messages from './views/messages'
 import Entry from './entry/entry'
-import Forget from './entry/forget/forget'
 import Login from './entry/login/login'
 import Register from './entry/register/register'
 import Views from './views'
@@ -30,7 +29,6 @@ function AppRoutes() {
         { path: '/entry', element: <Navigate to="/entry/login" /> },
         { path: '/entry/login', element: <Login /> },
         { path: '/entry/register', element: <Register /> },
-        { path: '/entry/forget', element: <Forget /> },
         { path: '/entry/*', element: <Navigate to="/entry/login" /> },
       ],
     },

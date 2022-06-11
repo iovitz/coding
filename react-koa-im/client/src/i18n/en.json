@@ -5,11 +5,13 @@
     "username_placeholder": "Input your username.",
     "password": "password",
     "password_placeholder": "Input your password.",
+    "repeat_password": "Repeat",
+    "repeat_password_placeholder": "Repeat your password.",
     "login_text": "Login",
     "register_text": "Register",
-    "forget_text": "Reset",
     "forget_password": "Forget password",
-    "create_new": "Create new account"
+    "to_register": "Create new account",
+    "to_login": "Back to login"
   },
   "messages": {}
 }

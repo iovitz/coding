@@ -23,13 +23,8 @@ export default function Login() {
         </Space>
       </Form>
 
-      <Space justify="between" block style={{ padding: '24px 0' }}>
-        <Link to="/entry/forget" className={style['bboouse-entry-link']}>
-          {t('entry.forget_password')}
-        </Link>
-        <Link to="/entry/register" className={style['bboouse-entry-link']}>
-          {t('entry.create_new')}
-        </Link>
+      <Space justify="center" block style={{ padding: '24px 0' }}>
+        <Link to="/entry/register">{t('entry.to_register')}</Link>
       </Space>
     </>
   )
