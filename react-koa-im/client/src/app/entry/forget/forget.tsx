@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Reset = () => {
+const Forget = () => {
   return <div>Reset</div>
 }
 
-export default Reset
+export default Forget

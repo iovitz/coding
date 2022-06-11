@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:react/recommended', 'plugin:prettier/recommended', 'plugin:@typescript-eslint/recommended'],
   parserOptions: {
     ecmaVersion: 'esnext',
     sourceType: 'module',
@@ -15,8 +15,7 @@ module.exports = {
     'no-param-reassign': 'off',
     // 允许在开发环境添加debugger
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    indent: ['error', 2, { SwitchCase: 1 }],
-    '': 'off',
+    indent: 'off',
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
@@ -24,7 +23,7 @@ module.exports = {
     'global-require': 'off',
     'no-trailing-spaces': 'off',
     'eol-last': 'off',
-    'max-len': ['error', { code: 160 }],
+    'max-len': ['error', { code: 120 }],
     'space-before-function-paren': 0,
     'no-multiple-empty-lines': 0,
     'react/self-closing-comp': ['error'],

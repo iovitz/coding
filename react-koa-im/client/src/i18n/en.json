@@ -1,6 +1,15 @@
 {
-  "login": {
-    "title": "BBHouse"
+  "entry": {
+    "title": "BBHouse",
+    "username": "Username",
+    "username_placeholder": "Input your username.",
+    "password": "password",
+    "password_placeholder": "Input your password.",
+    "login_text": "Login",
+    "register_text": "Register",
+    "forget_text": "Reset",
+    "forget_password": "Forget password",
+    "create_new": "Create new account"
   },
   "messages": {}
 }

@@ -1,6 +1,15 @@
 {
-  "login": {
-    "title": "BB屋"
+  "entry": {
+    "title": "BBHouse",
+    "username": "用户名",
+    "username_placeholder": "请输入用户名",
+    "password": "密码",
+    "password_placeholder": "请输入密码",
+    "login_text": "登录",
+    "register_text": "登录",
+    "forget_text": "登录",
+    "forget_password": "忘记密码",
+    "create_new": "创建新账号"
   },
   "messages": {}
 }

@@ -1,0 +1,30 @@
+.bbhouse-entry {
+  height: 100%;
+  width: 100%;
+  padding: 30% 20px 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.bbhouse-entry-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.bbhouse-entry-language-switcher {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.bbhouse-language-item {
+  margin-right: 10px;
+  &.bbhouse-language-highlight {
+    color: var(--adm-color-primary);
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
