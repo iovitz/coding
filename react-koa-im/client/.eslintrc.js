@@ -28,7 +28,7 @@ module.exports = {
     'no-multiple-empty-lines': 0,
     'react/self-closing-comp': ['error'],
     'arrow-parens': ['error', 'always'],
-    ' @typescript-eslint/no-unused-vars': 'off',
+    'no-unused-vars': 'off',
   },
   settings: {
     react: {

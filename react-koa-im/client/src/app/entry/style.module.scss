@@ -1,15 +1,19 @@
 .bbhouse-entry {
   height: 100%;
   width: 100%;
-  padding: 70px 20px 0;
+  padding-top: 40px;
   position: relative;
   box-sizing: border-box;
+}
+
+.bbhouse-entry-form {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .bbhouse-entry-title {
   text-align: center;
   font-size: 2em;
-  margin-bottom: 30px;
 }
 
 .bbhouse-entry-language-switcher {

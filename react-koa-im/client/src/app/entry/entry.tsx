@@ -41,7 +41,9 @@ class EntryComponent extends React.Component<PropsType, EntryState> {
     return (
       <article className={style['bbhouse-entry']}>
         <h2 className={style['bbhouse-entry-title']}>{t('entry.title')}</h2>
-        <Outlet />
+        <main className={style['bbhouse-entry-form']}>
+          <Outlet />
+        </main>
         <div className={style['bbhouse-entry-language-switcher']}>
           {languageList.map((languageItem) => {
             return (
