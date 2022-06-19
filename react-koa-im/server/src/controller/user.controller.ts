@@ -9,11 +9,16 @@ export class UserController extends BaseController {
 
   initRouterMap = () => {
     const { router } = this
-    router.get('/name', this.getName)
+    router.post('/login', this.postLogin)
+    router.post('/register', this.postRegister)
   }
 
-  getName = (ctx: Koa.DefaultContext) => {
-    ctx.name = '123123'
+  postLogin = (ctx: any) => {
+    console.log(ctx)
+  }
+
+  postRegister = (ctx: Koa.DefaultContext) => {
+    ctx.body = 'register'
   }
 
 }

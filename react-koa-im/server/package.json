@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"yarn build\" \"nodemon dist/index.js\"",
-    "build": "webpack --watch"
+    "dev": "concurrently \"yarn build\" \"nodemon dist/main.cjs.js\"",
+    "build": "rollup -cw --environment NODE_ENV:production"
   },
+  "esm": "dist/main.min.js",
+  "cjs": "dist/main.cjs.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -38,10 +40,11 @@
     "koa": "^2.13.4",
     "nodemon": "^2.0.16",
     "parcel-bundler": "^1.12.5",
+    "rollup": "^2.75.6",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.32.1",
     "ts-loader": "^9.3.0",
     "ts-node": "^10.8.0",
-    "typescript": "^4.7.2",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
+    "typescript": "^4.7.2"
   }
 }

@@ -2,7 +2,6 @@ import type Koa from 'koa'
 import koaStatic from 'koa-static'
 import bodyParser from 'koa-bodyparser'
 import { UserController } from './user.controller'
-import Router from 'koa-router'
 import BaseController from './base.controller'
 
 const routes: (new (app: Koa) => BaseController)[] = [
@@ -13,7 +12,7 @@ const controllerMap = new Map<string, BaseController>()
 
 export default function initController(app: Koa) {
 
-  app.use(koaStatic('public'))
+  app.use(koaStatic('views'))
   app.use(bodyParser())
 
   routes.forEach(Route => {
