@@ -8,10 +8,10 @@ import rootStore from './redux/store'
 import 'normalize.css'
 import App from './app/app'
 
-const root = ReactDOM.createRoot(document.getElementById('BBHOUSE') as HTMLElement)
+const root = ReactDOM.createRoot(document.getElementById('peppa') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <main className="bbhouse-app">
+    <main className="peppa-app">
       <AppStateProvider>
         <Provider store={rootStore}>
           <App />

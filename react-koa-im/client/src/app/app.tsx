@@ -1,12 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Navigate, useRoutes } from 'react-router-dom'
-import Chat from './views/chat'
-import Friends from './views/friends'
-import Messages from './views/messages'
+import Chat from './views/chat/chat'
+import Friends from './views/friends/friends'
+import Messages from './views/messages/messages'
 import Entry from './entry/entry'
 import Login from './entry/login/login'
 import Register from './entry/register/register'
 import Views from './views'
+import Bzone from './views/bzone/bzone'
+import Home from './views/home/home'
 
 export const App = () => {
   return (
@@ -40,6 +42,8 @@ function AppRoutes() {
         { path: '/views/messages', element: <Messages /> },
         { path: '/views/friends', element: <Friends /> },
         { path: '/views/chat', element: <Chat /> },
+        { path: '/views/bzone', element: <Bzone /> },
+        { path: '/views/home', element: <Home /> },
         { path: '/views/*', element: <Navigate to="/views/messages" /> },
       ],
     },

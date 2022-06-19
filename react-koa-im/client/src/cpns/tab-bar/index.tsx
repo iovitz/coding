@@ -2,21 +2,26 @@ import { Tab, Tabs } from '@mui/material'
 import NaturePeopleTwoToneIcon from '@mui/icons-material/NaturePeopleTwoTone'
 import ChatTwoToneIcon from '@mui/icons-material/ChatTwoTone'
 import MosqueTwoToneIcon from '@mui/icons-material/MosqueTwoTone'
-import PublicTwoToneIcon from '@mui/icons-material/PublicTwoTone'
+import PeopleAltTwoToneIcon from '@mui/icons-material/PeopleAltTwoTone'
 
-import React, { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+
+import React from 'react'
 
 function TabBar() {
-  const [value, setValue] = useState('messages')
-  const handleChange = () => {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleChange = (_: any, value: any) => {
     console.log(value)
+    navigate(value)
   }
   return (
-    <Tabs value={value} onChange={handleChange}>
-      <Tab icon={<ChatTwoToneIcon />} style={{ flex: 1 }} label="messages" value="messages" />
-      <Tab icon={<NaturePeopleTwoToneIcon />} style={{ flex: 1 }} label="friends" value="friends" />
-      <Tab icon={<PublicTwoToneIcon />} style={{ flex: 1 }} label="world" value="world" />
-      <Tab icon={<MosqueTwoToneIcon />} style={{ flex: 1 }} label="bzone" value="bzone" />
+    <Tabs value={location.pathname} onChange={handleChange}>
+      <Tab icon={<ChatTwoToneIcon />} style={{ flex: 1 }} label="messages" value="/views/messages" />
+      <Tab icon={<PeopleAltTwoToneIcon />} style={{ flex: 1 }} label="friends" value="/views/friends" />
+      <Tab icon={<NaturePeopleTwoToneIcon />} style={{ flex: 1 }} label="home" value="/views/home" />
+      <Tab icon={<MosqueTwoToneIcon />} style={{ flex: 1 }} label="bzone" value="/views/bzone" />
     </Tabs>
   )
 }

@@ -5,11 +5,11 @@ import TabBar from '../../cpns/tab-bar'
 
 function Views() {
   return (
-    <div className={style['bbhouse-pages']}>
-      <div className={style['bbhouse-pages-scroll-container']}>
+    <div className={style['peppa-pages']}>
+      <div className={style['peppa-pages-scroll-container']}>
         <Outlet />
       </div>
-      <div className={style['bbhouse-pages-nav-bar']}>
+      <div className={style['peppa-pages-nav-bar']}>
         <TabBar />
       </div>
     </div>

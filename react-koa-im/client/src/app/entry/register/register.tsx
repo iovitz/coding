@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import style from './style.module.scss'
-import { Alert, Button, FormControl, TextField } from '@mui/material'
+import { Alert, Button, FormControl, InputAdornment, TextField } from '@mui/material'
+import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone'
+import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone'
 
 export default function Register() {
   const { t } = useTranslation()
@@ -26,9 +28,18 @@ export default function Register() {
           label={t('entry.username_placeholder')}
           margin="normal"
           size="small"
+          autoComplete="off"
           value={username}
+          variant="standard"
           onChange={({ currentTarget }) => {
             setUsername(currentTarget.value)
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PersonOutlineTwoToneIcon />
+              </InputAdornment>
+            ),
           }}
         />
         <TextField
@@ -37,8 +48,17 @@ export default function Register() {
           margin="normal"
           size="small"
           value={password}
+          variant="standard"
+          autoComplete="off"
           onChange={({ currentTarget }) => {
             setPassword(currentTarget.value)
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockOpenTwoToneIcon />
+              </InputAdornment>
+            ),
           }}
         />
         <TextField
@@ -47,8 +67,16 @@ export default function Register() {
           margin="normal"
           size="small"
           value={repeat}
+          variant="standard"
           onChange={({ currentTarget }) => {
             setRepeat(currentTarget.value)
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockOpenTwoToneIcon />
+              </InputAdornment>
+            ),
           }}
         />
         {error && <Alert severity="error">{error}</Alert>}
@@ -67,7 +95,9 @@ export default function Register() {
           textAlign: 'center',
         }}
       >
-        <Link to="/entry/login">{t('entry.to_login')}</Link>
+        <Link to="/entry/login" style={{ textDecoration: 'none' }}>
+          {t('entry.to_login')}
+        </Link>
       </p>
     </>
   )

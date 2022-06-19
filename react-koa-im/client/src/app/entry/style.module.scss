@@ -1,4 +1,4 @@
-.bbhouse-entry {
+.peppa-entry {
   height: 100%;
   width: 100%;
   padding-top: 40px;
@@ -6,26 +6,26 @@
   box-sizing: border-box;
 }
 
-.bbhouse-entry-form {
+.peppa-entry-form {
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.bbhouse-entry-title {
+.peppa-entry-title {
   text-align: center;
   font-size: 2em;
 }
 
-.bbhouse-entry-language-switcher {
+.peppa-entry-language-switcher {
   position: absolute;
   bottom: 40px;
   left: 0;
   width: 100%;
   text-align: center;
 }
-.bbhouse-language-item {
+.peppa-language-item {
   margin-right: 10px;
-  &.bbhouse-language-highlight {
+  &.peppa-language-highlight {
     color: var(--adm-color-primary);
   }
   &:last-child {

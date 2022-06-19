@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import style from './style.module.scss'
-import { Alert, Button, FormControl, TextField } from '@mui/material'
+import { Alert, Button, FormControl, InputAdornment, TextField } from '@mui/material'
+import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone'
+import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone'
 
 export default function Login() {
   const { t } = useTranslation()
@@ -26,8 +28,17 @@ export default function Login() {
           margin="normal"
           size="small"
           value={username}
+          variant="standard"
+          autoComplete="off"
           onChange={({ currentTarget }) => {
             setUsername(currentTarget.value)
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PersonOutlineTwoToneIcon />
+              </InputAdornment>
+            ),
           }}
         />
         <TextField
@@ -36,8 +47,16 @@ export default function Login() {
           margin="normal"
           size="small"
           value={password}
+          variant="standard"
           onChange={({ currentTarget }) => {
             setPassword(currentTarget.value)
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockOpenTwoToneIcon />
+              </InputAdornment>
+            ),
           }}
         />
         {error && <Alert severity="error">{error}</Alert>}
@@ -57,7 +76,9 @@ export default function Login() {
           textAlign: 'center',
         }}
       >
-        <Link to="/entry/register">{t('entry.to_register')}</Link>
+        <Link to="/entry/register" style={{ textDecoration: 'none' }}>
+          {t('entry.to_register')}
+        </Link>
       </p>
     </>
   )

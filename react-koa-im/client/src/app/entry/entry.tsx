@@ -3,6 +3,7 @@ import style from './style.module.scss'
 import { WithTranslation, withTranslation } from 'react-i18next'
 import { RootState, StoreDispatch } from '../../redux/store'
 import LanguageActionCreator from '../../redux/actions/language.action'
+import BrightnessHighTwoToneIcon from '@mui/icons-material/BrightnessHighTwoTone'
 import { connect } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 
@@ -39,12 +40,14 @@ class EntryComponent extends React.Component<PropsType, EntryState> {
   render() {
     const { t, languageList, currentLanguage } = this.props
     return (
-      <article className={style['bbhouse-entry']}>
-        <h2 className={style['bbhouse-entry-title']}>{t('entry.title')}</h2>
-        <main className={style['bbhouse-entry-form']}>
+      <article className={style['peppa-entry']}>
+        <main className={style['peppa-entry-form']}>
+          <p style={{ textAlign: 'center' }}>
+            <BrightnessHighTwoToneIcon style={{ fontSize: '100px' }} />
+          </p>
           <Outlet />
         </main>
-        <div className={style['bbhouse-entry-language-switcher']}>
+        <div className={style['peppa-entry-language-switcher']}>
           {languageList.map((languageItem) => {
             return (
               <span
@@ -53,8 +56,8 @@ class EntryComponent extends React.Component<PropsType, EntryState> {
                   this.handleSelectLanguage(languageItem.code)
                 }}
                 className={[
-                  style['bbhouse-language-item'],
-                  languageItem.code === currentLanguage ? style['bbhouse-language-highlight'] : '',
+                  style['peppa-language-item'],
+                  languageItem.code === currentLanguage ? style['peppa-language-highlight'] : '',
                 ].join(' ')}
               >
                 {languageItem.name}
