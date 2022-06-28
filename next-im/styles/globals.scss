@@ -1,20 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+#__next {
+  height: 100%;
+  width: 100%;
 }
-
-* {
+.next-app {
+  height: 100%;
+  position: relative;
+  padding-top: 56px;
+  padding-bottom: 56px;
   box-sizing: border-box;
+  &-navigation,
+  &-topbar {
+    width: 100%;
+    position: absolute;
+    left: 0;
+  }
+  &-topbar { top: 0 }
+  &-navigation { bottom: 0; }
+  &-container {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+  }
 }

@@ -1,12 +1,11 @@
+import { Button } from '@mui/material'
 import type { NextPage } from 'next'
-import styles from './index.module.scss'
-import { Page } from 'konsta/react'
 
-const Home: NextPage = ({ children }) => {
+const Home: NextPage = () => {
   return (
-    <Page>
-      <Component {...pageProps} />
-    </Page>
+    <>
+      <Button>123</Button>
+    </>
   )
 }
 
