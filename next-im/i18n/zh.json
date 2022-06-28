@@ -1,0 +1,17 @@
+{
+  "entry": {
+    "title": "peppa",
+    "username": "用户名",
+    "username_placeholder": "请输入用户名",
+    "password": "密码",
+    "password_placeholder": "请输入密码",
+    "repeat_password": "密码",
+    "repeat_password_placeholder": "请再次输入密码",
+    "login_text": "登录",
+    "register_text": "注册",
+    "forget_password": "忘记密码",
+    "to_register": "创建新账号",
+    "to_login": "返回登陆"
+  },
+  "messages": {}
+}
