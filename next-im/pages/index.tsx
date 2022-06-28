@@ -1,10 +1,27 @@
-import { Button } from '@mui/material'
+import { AccountCircle } from '@mui/icons-material'
+import { Button, Input, InputAdornment, TextField } from '@mui/material'
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   return (
     <>
-      <Button>123</Button>
+      <Input
+        id="input-with-icon-adornment"
+        startAdornment={
+          <InputAdornment position="start">
+            <AccountCircle />
+          </InputAdornment>
+        }
+      />
+      <Input
+        id="input-with-icon-adornment"
+        startAdornment={
+          <InputAdornment position="start">
+            <AccountCircle />
+          </InputAdornment>
+        }
+      />
+      <Button>Hello</Button>
     </>
   )
 }
