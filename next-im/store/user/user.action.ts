@@ -1,4 +1,4 @@
-import { UserInfo } from '@/interface/data.types'
+import { UserInfo } from '@/types/data.types'
 import { ThunkAction } from 'redux-thunk'
 import { RootState } from '../store'
 

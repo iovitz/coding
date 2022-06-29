@@ -1,4 +1,4 @@
-import { Message } from '@/interface/data.types'
+import { Message } from '@/types/data.types'
 
 class MessageActionCreator {
   // 切换语言
