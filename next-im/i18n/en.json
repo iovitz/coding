@@ -1,0 +1,17 @@
+{
+  "entry": {
+    "title": "peppa",
+    "username": "Username",
+    "username_placeholder": "Input your username.",
+    "password": "password",
+    "password_placeholder": "Input your password.",
+    "repeat_password": "Repeat",
+    "repeat_password_placeholder": "Repeat your password.",
+    "login_text": "Login",
+    "register_text": "Register",
+    "forget_password": "Forget password",
+    "to_register": "Create new account",
+    "to_login": "Back to login"
+  },
+  "messages": {}
+}

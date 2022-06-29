@@ -1,9 +1,9 @@
 import * as React from 'react'
 import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
-import RestoreIcon from '@mui/icons-material/Restore'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import ArchiveIcon from '@mui/icons-material/Archive'
+import NaturePeopleTwoToneIcon from '@mui/icons-material/NaturePeopleTwoTone'
+import ChatTwoToneIcon from '@mui/icons-material/ChatTwoTone'
+import MosqueTwoToneIcon from '@mui/icons-material/MosqueTwoTone'
 import Router from 'next/router'
 import { Badge } from '@mui/material'
 
@@ -22,12 +22,12 @@ export default function GobalNavigation() {
         value={'messages'}
         icon={
           <Badge badgeContent={4} color="secondary">
-            <RestoreIcon />
+            <ChatTwoToneIcon />
           </Badge>
         }
       />
-      <BottomNavigationAction label="Zone" value={'zone'} icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="People" value={'people'} icon={<ArchiveIcon />} />
+      <BottomNavigationAction label="Zone" value={'zone'} icon={<NaturePeopleTwoToneIcon />} />
+      <BottomNavigationAction label="People" value={'people'} icon={<MosqueTwoToneIcon />} />
     </BottomNavigation>
   )
 }
