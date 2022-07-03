@@ -1,52 +1,75 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import style from './index.module.scss'
 import { WithTranslation, withTranslation } from 'react-i18next'
-import BrightnessHighTwoToneIcon from '@mui/icons-material/BrightnessHighTwoTone'
 import { connect } from 'react-redux'
-import I18nActionCreator from '@/store/i18n/i18n.action'
+import SettingActionCreator from '@/store/setting/setting.action'
 import { RootState, StoreDispatch } from '@/store/store'
+import LoginAbout from '@/cpns/login-about/login-about'
 
 const mapStateToProps = (state: RootState) => {
   return {
-    currentLanguage: state.i18n.language,
-    languageList: state.i18n.languageList,
+    currentLanguage: state.setting.language,
+    languageList: state.setting.languageList,
   }
 }
 
 const mapDispatchToProps = (dispatch: StoreDispatch) => {
   return {
     switchLanguageThunk: (language: 'zh' | 'en') => {
-      const action: any = I18nActionCreator.switchLanguageThunk(language)
+      const action: any = SettingActionCreator.switchLanguageThunk(language)
       dispatch(action)
     },
   }
 }
 
 interface EntryState {
-  name: string
+  username: string
+  password: string
+  captchaUrl: string
 }
 type PropsType = WithTranslation & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>
 
 class EntryComponent extends React.Component<PropsType, EntryState> {
   constructor(props: any) {
     super(props)
+    this.state = {
+      username: '',
+      password: '',
+      captchaUrl: '',
+    }
   }
 
-  handleSelectLanguage = (languageCode: RootState['i18n']['language']) => {
+  handleSelectLanguage = (languageCode: RootState['setting']['language']) => {
     this.props.switchLanguageThunk(languageCode)
+  }
+
+  handleInputChange = (key: 'username' | 'password') => {
+    return (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      switch (key) {
+        case 'username':
+          this.setState({
+            username: e.currentTarget.value,
+          })
+          break
+        case 'password':
+          this.setState({
+            password: e.currentTarget.value,
+          })
+          break
+      }
+    }
   }
 
   render() {
     const { t, languageList, currentLanguage } = this.props
     return (
-      <article className={style['peppa-entry']}>
-        <main className={style['peppa-entry-form']}>
-          <p style={{ textAlign: 'center' }}>
-            <BrightnessHighTwoToneIcon style={{ fontSize: '100px' }} />
-          </p>
-          {/* <Outlet /> */}
+      <article className={style['next-entry']}>
+        <main className={style['next-entry-form']}>
+          <h1 style={{ fontSize: '1.5em', margin: '0', paddingLeft: '15px', marginBottom: '20px' }}>NEXT-IM</h1>
+          <LoginAbout />
         </main>
-        <div className={style['peppa-entry-language-switcher']}>
+        <div className={style['next-entry-language-switcher']}>
           {languageList.map((languageItem) => {
             return (
               <span
@@ -55,8 +78,8 @@ class EntryComponent extends React.Component<PropsType, EntryState> {
                   this.handleSelectLanguage(languageItem.code)
                 }}
                 className={[
-                  style['peppa-language-item'],
-                  languageItem.code === currentLanguage ? style['peppa-language-highlight'] : '',
+                  style['next-language-item'],
+                  languageItem.code === currentLanguage ? style['next-language-highlight'] : '',
                 ].join(' ')}
               >
                 {languageItem.name}

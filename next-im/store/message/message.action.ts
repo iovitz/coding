@@ -1,7 +1,6 @@
-import { Message } from '@/types/data.types'
+import { Message } from '@/common/data.types'
 
 class MessageActionCreator {
-  // 切换语言
   static readonly SET_NEW_MESSAGES = 'message#SET_NEW_MESSAGES'
   static setNewMessages(payload: Message[]) {
     return {

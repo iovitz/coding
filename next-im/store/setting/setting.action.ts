@@ -2,7 +2,7 @@ import { ThunkAction } from 'redux-thunk'
 import i18n from '@/i18n/i18n'
 import { RootState } from '../store'
 
-class I18nActionCreator {
+class SettingActionCreator {
   // 切换语言
   static readonly SWITCH_LANGUAGE = 'language#switch_language'
   static switchLanguage(payload: 'zh' | 'en') {
@@ -14,14 +14,14 @@ class I18nActionCreator {
   static switchLanguageThunk =
     (
       language: 'zh' | 'en',
-    ): ThunkAction<void, RootState, unknown, ReturnType<typeof I18nActionCreator.switchLanguage>> =>
+    ): ThunkAction<void, RootState, unknown, ReturnType<typeof SettingActionCreator.switchLanguage>> =>
     (dispatch) => {
       i18n.changeLanguage(language)
       console.log(language)
-      dispatch(I18nActionCreator.switchLanguage(language))
+      dispatch(SettingActionCreator.switchLanguage(language))
     }
 }
 
-export type I18nAction = ReturnType<typeof I18nActionCreator.switchLanguage>
+export type SettingAction = ReturnType<typeof SettingActionCreator.switchLanguage>
 
-export default I18nActionCreator
+export default SettingActionCreator

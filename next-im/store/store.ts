@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import I18nReducer from './i18n/i18n.reducer'
+import SettingReducer from './setting/setting.reducer'
 import userReducer from './user/user.reducer'
 
 const rootReducer = combineReducers({
-  i18n: I18nReducer,
+  setting: SettingReducer,
   user: userReducer,
 })
 

@@ -1,25 +1,30 @@
-import I18nActions, { I18nAction } from './i18n.action'
+import SettingActionCreator, { SettingAction } from './setting.action'
 
-interface I18nState {
+interface SettingState {
   language: 'en' | 'zh'
   languageList: Array<{
     name: string
     code: 'en' | 'zh'
   }>
+
+  isShowAppBar: boolean
+  isShowNavigation: boolean
 }
 
-const defaultState: I18nState = {
+const defaultState: SettingState = {
   language: 'zh',
   languageList: [
     { name: '中文', code: 'zh' },
     { name: 'English', code: 'en' },
   ],
+  isShowAppBar: false,
+  isShowNavigation: false,
 }
 
-const I18nReducer = (state = defaultState, action: I18nAction): I18nState => {
+const SettingReducer = (state = defaultState, action: SettingAction): SettingState => {
   const { type, payload } = action
   switch (type) {
-    case I18nActions.SWITCH_LANGUAGE: {
+    case SettingActionCreator.SWITCH_LANGUAGE: {
       const language = payload === 'en' ? 'en' : 'zh'
       return {
         ...state,
@@ -32,4 +37,4 @@ const I18nReducer = (state = defaultState, action: I18nAction): I18nState => {
   }
 }
 
-export default I18nReducer
+export default SettingReducer
