@@ -1,15 +1,24 @@
-import * as React from 'react'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
-import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
-import Typography from '@mui/material/Typography'
+import { FC, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import SettingActionCreator from '@/store/setting/setting.action'
 
-export default function AlignItemsList() {
+const AlignItemsListComponent: FC = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      SettingActionCreator.switchSystemComponentDisplayTrunk({
+        isShowAppBar: true,
+        isShowNavigationBar: true,
+      }) as any,
+    )
+  })
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -31,3 +40,5 @@ export default function AlignItemsList() {
     </List>
   )
 }
+
+export default AlignItemsListComponent

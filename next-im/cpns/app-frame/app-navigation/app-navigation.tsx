@@ -26,7 +26,7 @@ export default function GobalNavigation() {
           </Badge>
         }
       />
-      <BottomNavigationAction label="Zone" value={'zone'} icon={<NaturePeopleTwoToneIcon />} />
+      <BottomNavigationAction label="Zone" value={''} icon={<NaturePeopleTwoToneIcon />} />
       <BottomNavigationAction label="People" value={'people'} icon={<MosqueTwoToneIcon />} />
     </BottomNavigation>
   )

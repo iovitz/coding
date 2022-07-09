@@ -1,14 +1,17 @@
 import SettingActionCreator, { SettingAction } from './setting.action'
 
-interface SettingState {
+export interface SystemComponentDisplay {
+  isShowAppBar: boolean
+  isShowNavigationBar: boolean
+  isShowLoginModel: boolean
+}
+
+interface SettingState extends SystemComponentDisplay {
   language: 'en' | 'zh'
   languageList: Array<{
     name: string
     code: 'en' | 'zh'
   }>
-
-  isShowAppBar: boolean
-  isShowNavigation: boolean
 }
 
 const defaultState: SettingState = {
@@ -18,7 +21,8 @@ const defaultState: SettingState = {
     { name: 'English', code: 'en' },
   ],
   isShowAppBar: false,
-  isShowNavigation: false,
+  isShowNavigationBar: false,
+  isShowLoginModel: false,
 }
 
 const SettingReducer = (state = defaultState, action: SettingAction): SettingState => {
@@ -29,6 +33,12 @@ const SettingReducer = (state = defaultState, action: SettingAction): SettingSta
       return {
         ...state,
         language,
+      }
+    }
+    case SettingActionCreator.SWITCH_SYSTEM_COMPONENT_DISPLAY: {
+      return {
+        ...state,
+        ...payload,
       }
     }
     default: {

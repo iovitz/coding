@@ -3,23 +3,33 @@ import AppTopBar from './app-top-bar/app-top-bar'
 import AppNavigation from './app-navigation/app-navigation'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
+import classNames from 'classnames'
 
-const AppFrame: React.FC<any> = ({ children }) => {
+interface Props {
+  children: JSX.Element
+}
+
+const AppFrame: React.FC<Props> = ({ children }) => {
   const UI = useSelector((state: RootState) => {
     return {
-      appbar: state.setting.isShowAppBar,
-      navigation: state.setting.isShowNavigation,
+      isShowAppBar: state.setting.isShowAppBar,
+      isShowNavigationBar: state.setting.isShowNavigationBar,
     }
   })
   return (
-    <div className="next-app">
-      {UI.appbar && (
+    <div
+      className={classNames('next-app', {
+        'show-appbar': UI.isShowAppBar,
+        'show-navigationbar': UI.isShowNavigationBar,
+      })}
+    >
+      {UI.isShowAppBar && (
         <div className="next-app-topbar">
           <AppTopBar />
         </div>
       )}
       <div className="next-app-container">{children}</div>
-      {UI.navigation && (
+      {UI.isShowNavigationBar && (
         <div className="next-app-navigation">
           <AppNavigation />
         </div>

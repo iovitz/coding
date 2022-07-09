@@ -14,8 +14,13 @@ body {
 .next-app {
   height: 100%;
   position: relative;
-  padding-top: 20px;
   box-sizing: border-box;
+  &.show-appbar {
+    padding-top: 56px;
+  }
+  &.show-navigationbar {
+    padding-bottom: 56px;
+  }
   &-navigation,
   &-topbar {
     width: 100%;
