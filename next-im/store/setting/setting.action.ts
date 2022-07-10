@@ -34,7 +34,6 @@ class SettingActionCreator {
       payload: Partial<SystemComponentDisplay>,
     ): ThunkAction<void, RootState, unknown, ReturnType<typeof SettingActionCreator.switchSystemComponentDisplay>> =>
     (dispatch) => {
-      console.log(payload)
       dispatch(SettingActionCreator.switchSystemComponentDisplay({ ...payload }))
     }
 }

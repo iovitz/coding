@@ -1,4 +1,4 @@
-import { Message } from '@/common/data.types'
+import { Message } from '@/common/client.datatype'
 
 class MessageActionCreator {
   static readonly SET_NEW_MESSAGES = 'message#SET_NEW_MESSAGES'

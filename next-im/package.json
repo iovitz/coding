@@ -27,15 +27,16 @@
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "sequelize": "^6.21.2",
-    "socket.io": "^4.5.1",
     "svg-captcha": "^1.4.0",
-    "tencentcloud-sdk-nodejs": "^4.0.374"
+    "tencentcloud-sdk-nodejs": "^4.0.374",
+    "ws": "^8.8.0"
   },
   "devDependencies": {
     "@types/mockjs": "^1.0.6",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
+    "@types/ws": "^8.5.3",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "autoprefixer": "^10.4.7",
     "eslint": "8.18.0",

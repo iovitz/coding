@@ -1,6 +1,6 @@
 import { UserAction } from './user.action'
 import UserActionCreator from './user.action'
-import { UserInfo } from '@/common/data.types'
+import { UserInfo } from '@/common/client.datatype'
 
 interface UserState {
   userInfo: UserInfo

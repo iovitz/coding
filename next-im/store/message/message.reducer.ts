@@ -1,4 +1,4 @@
-import { Message } from '@/common/data.types'
+import { Message } from '@/common/client.datatype'
 import MessageActionCreator, { MessageAction } from './message.action'
 
 interface LanguageState {
