@@ -5,35 +5,29 @@ import { Button, FormControl, Grid, Input, InputLabel, Stack } from '@mui/materi
 import { nextServer } from '@/utils/server'
 import { PageName } from '@/common/constant'
 
-interface LoginState {
+interface RegisterState {
   username: string
   password: string
-  captchaUrl: string
+  repeat: string
+  code: string
 }
 
 type PropsType = WithTranslation & {
   switchLoginPages: (pageName: PageName) => void
 }
 
-class LoginComponent extends React.Component<PropsType, LoginState> {
+class RegisterComponent extends React.Component<PropsType, RegisterState> {
   constructor(props: any) {
     super(props)
     this.state = {
       username: '',
       password: '',
-      captchaUrl: '',
+      repeat: '',
+      code: '',
     }
   }
 
-  handleNewCapcha = async () => {
-    const captchaUrl = await nextServer.get<{ url: string }>('/user/getCaptcha?width=100&height=45')
-    console.log(captchaUrl)
-    this.setState({
-      captchaUrl: captchaUrl.url,
-    })
-  }
-
-  handleInputChange = (key: 'username' | 'password') => {
+  handleInputChange = (key: 'username' | 'password' | 'repeat' | 'code') => {
     return (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       switch (key) {
         case 'username':
@@ -46,17 +40,25 @@ class LoginComponent extends React.Component<PropsType, LoginState> {
             password: e.currentTarget.value,
           })
           break
+        case 'repeat':
+          this.setState({
+            repeat: e.currentTarget.value,
+          })
+          break
+        case 'code':
+          this.setState({
+            code: e.currentTarget.value,
+          })
+          break
       }
     }
   }
 
-  async componentDidMount() {
-    await this.handleNewCapcha()
-  }
+  // async componentDidMount() {}
 
   render() {
     const { t } = this.props
-    const { captchaUrl, username, password } = this.state
+    const { username, password, repeat, code } = this.state
     return (
       <Stack spacing={2}>
         <FormControl>
@@ -67,31 +69,39 @@ class LoginComponent extends React.Component<PropsType, LoginState> {
           <InputLabel>密码：</InputLabel>
           <Input value={password} onChange={this.handleInputChange('password')} />
         </FormControl>
+        <FormControl>
+          <InputLabel>重复密码</InputLabel>
+          <Input value={repeat} onChange={this.handleInputChange('repeat')} />
+        </FormControl>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={6}>
             <FormControl>
-              <InputLabel>验证码：</InputLabel>
-              <Input aria-describedby="my-helper-text" />
+              <InputLabel>邮箱验证码：</InputLabel>
+              <Input value={code} aria-describedby="my-helper-text" />
             </FormControl>
           </Grid>
-          <Grid item xs={4}>
-            <div
-              onClick={this.handleNewCapcha}
-              dangerouslySetInnerHTML={{
-                __html: captchaUrl,
+          <Grid item xs={6}>
+            <Button
+              variant="contained"
+              size="large"
+              style={{
+                width: '100%',
+                height: '100%',
               }}
-            ></div>
+            >
+              邮箱验证
+            </Button>
           </Grid>
         </Grid>
         <Grid>
           <Button
-            size="large"
             variant="contained"
+            size="large"
             style={{
               width: '100%',
             }}
           >
-            登录
+            注册
           </Button>
         </Grid>
         <Grid>
@@ -102,24 +112,10 @@ class LoginComponent extends React.Component<PropsType, LoginState> {
               width: '100%',
             }}
             onClick={() => {
-              this.props.switchLoginPages(PageName.Register)
+              this.props.switchLoginPages(PageName.Login)
             }}
           >
-            注册账号
-          </Button>
-        </Grid>
-        <Grid>
-          <Button
-            size="large"
-            variant="outlined"
-            style={{
-              width: '100%',
-            }}
-            onClick={() => {
-              this.props.switchLoginPages(PageName.Forget)
-            }}
-          >
-            忘记密码
+            返回登录
           </Button>
         </Grid>
       </Stack>
@@ -127,6 +123,6 @@ class LoginComponent extends React.Component<PropsType, LoginState> {
   }
 }
 
-const Login = withTranslation()(LoginComponent)
+const Register = withTranslation()(RegisterComponent)
 
-export default Login
+export default Register

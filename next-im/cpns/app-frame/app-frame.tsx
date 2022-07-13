@@ -4,6 +4,8 @@ import AppNavigation from './app-navigation/app-navigation'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import classNames from 'classnames'
+import { Box, Modal, Typography } from '@mui/material'
+import LoginModal from './login-modal/login-modal'
 
 interface Props {
   children: JSX.Element
@@ -14,27 +16,32 @@ const AppFrame: React.FC<Props> = ({ children }) => {
     return {
       isShowAppBar: state.setting.isShowAppBar,
       isShowNavigationBar: state.setting.isShowNavigationBar,
+      isShowLoginModel: state.setting.isShowLoginModel,
     }
   })
+  console.log(UI.isShowLoginModel)
   return (
-    <div
-      className={classNames('next-app', {
-        'show-appbar': UI.isShowAppBar,
-        'show-navigationbar': UI.isShowNavigationBar,
-      })}
-    >
-      {UI.isShowAppBar && (
-        <div className="next-app-topbar">
-          <AppTopBar />
-        </div>
-      )}
-      <div className="next-app-container">{children}</div>
-      {UI.isShowNavigationBar && (
-        <div className="next-app-navigation">
-          <AppNavigation />
-        </div>
-      )}
-    </div>
+    <>
+      <LoginModal open={UI.isShowLoginModel} />
+      <div
+        className={classNames('LOREM_APP', {
+          'show-appbar': UI.isShowAppBar,
+          'show-navigationbar': UI.isShowNavigationBar,
+        })}
+      >
+        {UI.isShowAppBar && (
+          <div className="LOREM_APP-topbar">
+            <AppTopBar />
+          </div>
+        )}
+        <div className="LOREM_APP-container">{children}</div>
+        {UI.isShowNavigationBar && (
+          <div className="LOREM_APP-navigation">
+            <AppNavigation />
+          </div>
+        )}
+      </div>
+    </>
   )
 }
 

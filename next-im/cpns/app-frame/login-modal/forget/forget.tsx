@@ -70,13 +70,13 @@ class RegisterComponent extends React.Component<PropsType, RegisterState> {
           <Input value={repeat} onChange={this.handleInputChange('repeat')} />
         </FormControl>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={6}>
             <FormControl>
               <InputLabel>邮箱验证码：</InputLabel>
               <Input value={code} aria-describedby="my-helper-text" />
             </FormControl>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <Button
               variant="contained"
               size="large"

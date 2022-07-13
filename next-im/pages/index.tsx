@@ -16,6 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import SettingActionCreator from '@/store/setting/setting.action'
 import { useDispatch } from 'react-redux'
+import { excuteIfIsLoggedIn } from '@/utils/permission/permission'
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean
@@ -74,13 +75,14 @@ function RecipeReviewCard() {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.
-          </Typography>
-          <Typography>Set aside off of the heat to let rest for 10 minutes, and then serve.</Typography>
-        </CardContent>
+        <button
+          onClick={excuteIfIsLoggedIn(() => {
+            console.log('登录了')
+          })}
+          style={{ backgroundColor: 'red' }}
+        >
+          一个按钮
+        </button>
       </Collapse>
     </Card>
   )

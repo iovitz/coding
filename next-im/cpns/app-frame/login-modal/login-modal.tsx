@@ -5,15 +5,19 @@ import Login from './login/login'
 import Register from './register/register'
 import Forget from './forget/forget'
 import { PageName } from '@/common/constant'
+import { Dialog } from '@mui/material'
+import style from './style.module.scss'
 
 interface LoginAboutState {
   currentPage: PageName
 }
 
-type PropsType = WithTranslation
+type PropsType = WithTranslation & {
+  open: boolean
+}
 
-class LoginAboutComponent extends React.Component<PropsType, LoginAboutState> {
-  constructor(props: any) {
+class LoginModelComponent extends React.Component<PropsType, LoginAboutState> {
+  constructor(props: PropsType) {
     super(props)
     this.state = {
       currentPage: PageName.Login,
@@ -37,11 +41,14 @@ class LoginAboutComponent extends React.Component<PropsType, LoginAboutState> {
   }
 
   render() {
-    const { t } = this.props
-    return <>{this.renderPages()}</>
+    return (
+      <Dialog open={this.props.open} className={style['lorem-login-modal']}>
+        <div className={style['lorem-login-modal']}>{this.renderPages()}</div>
+      </Dialog>
+    )
   }
 }
 
-const LoginAbout = withTranslation()(LoginAboutComponent)
+const LoginModal = withTranslation()(LoginModelComponent)
 
-export default LoginAbout
+export default LoginModal
