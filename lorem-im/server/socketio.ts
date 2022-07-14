@@ -5,7 +5,6 @@ class SocketServer {
   private isMounted = false
 
   create() {
-    console.log('###########mount')
     if (this.isMounted) return this.wss
     this.isMounted = true
     this.wss = new WebSocketServer({

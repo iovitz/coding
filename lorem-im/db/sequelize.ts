@@ -1,18 +1,19 @@
-import { Sequelize } from 'sequelize'
+import config from '@/config'
+import { Dialect, Sequelize } from 'sequelize'
 
-const sequelize = new Sequelize('database', 'username', 'password', {
-  host: process.env.MYSQL_DOMAIN,
-  port: Number(process.env.MYSQL_PORT),
-  database: process.env.MYSQL_DBNAME,
-  username: process.env.MYSQL_USERNAME,
-  password: process.env.MYSQL_PASSWORD,
+const sequelizeConnection = new Sequelize(config.MYSQL_DBNAME, config.MYSQL_USERNAME, config.MYSQL_PASSWORD, {
+  host: config.MYSQL_DOMAIN,
+  port: config.MYSQL_PORT,
+  dialect: config.DIALECT as Dialect,
 })
 
-sequelize
+sequelizeConnection
   .authenticate()
   .then(() => {
-    console.log('连接成功')
+    console.log('======数据库连接成功')
   })
   .catch(() => {
-    console.log('连接失败')
+    console.error('======数据库连接失败')
   })
+
+export default sequelizeConnection

@@ -26,7 +26,7 @@
     "react-i18next": "^11.17.3",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
-    "sequelize": "^6.21.2",
+    "sequelize": "^6.21.3",
     "svg-captcha": "^1.4.0",
     "tencentcloud-sdk-nodejs": "^4.0.374",
     "ws": "^8.8.0"
