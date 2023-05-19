@@ -1,0 +1,38 @@
+{
+  "name": "mock2file",
+  "version": "1.0.1",
+  "description": "mock2file is a command line tool that parses the mock syntax in JSON files and exports the parsed mock data to a new file",
+  "main": "dist/main.cjs.js",
+  "module": "dist/main.esm.js",
+  "unpkg": "dist/main.min.js",
+  "bin": {
+    "m2f": "dist/main.mjs"
+  },
+  "scripts": {
+    "dev": "rollup -cw",
+    "build": "rollup -c --environment NODE_ENV:production && rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "iovitz",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iovitz/mock2file.git"
+  },
+  "keywords": [
+    "mock",
+    "json",
+    "xlsx",
+    "excel",
+    "json-to-excel",
+    "create-json",
+    "create-xlsx",
+    "create-excel",
+    "microsoft-xlsx",
+    "xlsx-from-json"
+  ],
+  "bugs": {
+    "url": "https://github.com/iovitz/mock2file/issues"
+  },
+  "homepage": "https://github.com/iovitz/mock2file#readme"
+}

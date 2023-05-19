@@ -1,0 +1,17 @@
+{
+  "name": "mini_chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run client\"  \"npm run server\"",
+    "client": "npm run dev --prefix ./client",
+    "server": "npm run dev --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

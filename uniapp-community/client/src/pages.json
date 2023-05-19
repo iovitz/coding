@@ -1,0 +1,106 @@
+{
+
+  "easycom": {
+		"autoscan": true,
+    "custom": {
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/discover/discover",
+      "style": {
+        "navigationBarTitleText": "动态",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+      }
+    },
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "visible": false
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+        "navigationBarTitleText": "搜索",
+        "enablePullDownRefresh": true,
+        "animationType": "slide-in-right",
+        "animationDuration": 500
+      }
+    },
+    {
+      "path": "pages/publish/publish",
+      "style": {
+        "navigationBarTitleText": "发布",
+        "animationType": "slide-in-right",
+        "animationDuration": 500,
+        "navigationStyle":"custom"
+
+      }
+    },
+    {
+      "path": "pages/message/message",
+      "style": {
+        "navigationBarTitleText": "消息"
+      }
+    },
+    {
+      "path": "pages/unknown/unknown",
+      "style": {
+        "navigationBarTitleText": "404"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#ec7436",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/tabbar-icons/home.png",
+        "selectedIconPath": "static/tabbar-icons/home_fill.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "iconPath": "static/tabbar-icons/discover.png",
+        "selectedIconPath": "static/tabbar-icons/discover_fill.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "static/tabbar-icons/discover.png",
+        "selectedIconPath": "static/tabbar-icons/discover_fill.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/tabbar-icons/my.png",
+        "selectedIconPath": "static/tabbar-icons/my_fill.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Uniapp社区",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "bounce": "none"
+  }
+}
