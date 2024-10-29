@@ -1,0 +1,30 @@
+{
+  "entry": {
+    "title": "Mee",
+    "nickname": "昵称",
+    "nickname_placeholder": "你的昵称",
+    "username": "账号",
+    "username_placeholder": "想使用的账号",
+    "password": "密码",
+    "password_placeholder": "请输入密码",
+    "repeat_password": "重复",
+    "repeat_password_placeholder": "请再次输入密码",
+    "login_text": "登录",
+    "register_text": "注册",
+    "forget_password": "忘记密码",
+    "to_register": "创建新账号",
+    "to_login": "返回登陆"
+  },
+  "publish": {
+    "share_today": "分享今日欢喜",
+    "setting_permission": "权限设置",
+    "publish_news_content": "发布新内容",
+    "click_uplaod_image": "点击上传图片",
+    "permission": {
+      "all_people": "所有人可见",
+      "part_of_people": "部分好友可见",
+      "just_me": "仅自己可见"
+    }
+  },
+  "messages": {}
+}

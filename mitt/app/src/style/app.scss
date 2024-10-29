@@ -1,0 +1,11 @@
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #F7F8FA;
+}
+
+.single-line-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
